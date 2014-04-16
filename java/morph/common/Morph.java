@@ -74,6 +74,7 @@ public class Morph
 	public static int modAbilityPatch;
 	public static int forceLocalModAbilityPatch;
 	public static String remoteModAbilityPatch;
+	public static int useModAbilityPatchVanilla;
 	public static int modNBTStripper;
 	
 	public static int hostileAbilityMode;
@@ -141,8 +142,10 @@ public class Morph
 		abilities = addCommentAndReturnInt(config, "gameplay", "abilities", "Enable abilities?\n0 = No\n1 = Yes", 1);
 		modAbilityPatch = addCommentAndReturnInt(config, "gameplay", "modAbilityPatch", "Enable mod mob ability patching?\nThis support is mostly provided by the community and is not officially supported by the mod\nIf a mod mob you like doesn't have an ability, you can contribute to the mappings on the Morph Github page.\n0 = No\n1 = Yes", 1);
 		forceLocalModAbilityPatch = addCommentAndReturnInt(config, "gameplay", "forceLocalModAbilityPatch", "Force the mod to use the local copy of the ModMobAbilitySupport?\nThis is meant for debugging purposes and for modified local mod mob abilities mappings.\nDo take note that mappings server and clientside are not synched so both ends will require the same mappings.\n0 = No\n1 = Yes", 0);
-		remoteModAbilityPatch = addCommentAndReturnString(config, "gameplay", "remoteModAbilityPatch", "Force the mod to use Your distributed copy of", "https://raw.github.com/iChun/Morph/master");
-
+		remoteModAbilityPatch = addCommentAndReturnString(config, "gameplay", "remoteModAbilityPatch", "Force the mod to use Your distributed copy of", "https://raw.github.com/iChun/Morph/master/resources");
+		useModAbilityPatchVanilla = addCommentAndReturnInt(config, "gameplay", "useModAbilityPatchVanilla", "Force the mod to use patch for vanilla mobs\n" +
+				"0 = No\n" +
+				"1 = Yes \n !!!CAUTION!!!! \n This will remove abilities from vanilla mobs if not added to the patch file", 0);
 
 		modNBTStripper = addCommentAndReturnInt(config, "gameplay", "modNBTStripper", "Enable mod mob NBT Stripping?\nThis support is mostly provided by the community and is not officially supported by the mod\nThe stripper was added to remove non-essential information from the Entity NBT to remove duplicate morphs.\n0 = No\n1 = Yes", 1);
 		
